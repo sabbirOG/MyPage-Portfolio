@@ -60,7 +60,7 @@ a:hover {
     color: grey;
     text-decoration: underline;
     text-underline-offset: 1rem;
-    text-decoration-color: rgb(207, 43, 43);
+    text-decoration-color: rgba(3, 3, 3, 0.931);
 }
 
 
@@ -180,13 +180,14 @@ section {
 
 .section__text p {
     font-weight: 600;
+    font-size: 20px;
 }
 
 .section__text__p1 {
-    text-align: center;
+    text-align: left;
 }
 
-.seciton__text__p1 {
+.section__text__p2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
 }
@@ -199,13 +200,64 @@ title {
 #socials-container {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
-    gap: 1rem;
+    margin-top: 2rem; /* content theke ekto beshi gap */
+    gap: 1.5rem;      /* icons er moddhe neat gap */
 }
+
 
 /* ICONS */
 
 .icon {
     cursor: pointer;
     height: 2rem;
+    padding: 0.5rem;
+    padding-top: 1rem;
+
+}
+
+/* BUTTONS */
+
+/* Container for buttons */
+.btn-container {
+    display: flex;              
+    justify-content: center;     
+    gap: 1rem;                 
+}
+
+/* General button styles */
+.btn {
+    font-weight: 600;           
+    transition: all 400ms ease;  
+    padding: 1rem;              
+    width: 12rem;                
+    border-radius: 2rem;         
+    cursor: pointer;             
+}
+
+/* Default dark buttons */
+.btn-color-2 {
+    background-color: white; 
+    color:black;                        
+    border: 1px solid rgb(53, 53, 53);  
+}
+
+/* Download CV button (white by default) */
+.btn-color-1 {
+    background-color: rgb(53, 53, 53);    
+    color: white;              
+    border: 1px solid black;    
+}
+
+/* Hover effect for dark buttons */
+.btn-color-2:hover {
+    background-color: rgb(53, 53, 53);    
+    color: white;              
+    border: 1px solid black;    
+}
+
+/* Hover effect for Download CV button */
+.btn-color-1:hover {
+    background-color: white; 
+    color: black;                      
+    border: 1px solid rgb(53, 53, 53);  
 }
