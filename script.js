@@ -2,8 +2,14 @@
 function toggleMenu() {
     const menu = document.querySelector(".menu-links");
     const icon = document.querySelector(".hamburger-icon");
+    const isOpen = menu.classList.contains("open");
+    
     menu.classList.toggle("open");
     icon.classList.toggle("open");
+    
+    // Update ARIA attributes for accessibility
+    icon.setAttribute("aria-expanded", !isOpen);
+    menu.setAttribute("aria-hidden", isOpen);
 }
 
 // Smooth scrolling for navigation links
@@ -23,6 +29,10 @@ function closeMobileMenu() {
     const icon = document.querySelector(".hamburger-icon");
     menu.classList.remove("open");
     icon.classList.remove("open");
+    
+    // Update ARIA attributes for accessibility
+    icon.setAttribute("aria-expanded", "false");
+    menu.setAttribute("aria-hidden", "true");
 }
 
 // Add click event listeners to all navigation links
@@ -35,6 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             smoothScrollTo(targetId);
         });
+        
+        // Add keyboard support for navigation
+        link.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
     });
 
     // Close mobile menu when clicking nav links
@@ -45,18 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add loading state for external links
-    const externalLinks = document.querySelectorAll('a[href^="http"], a[href^="mailto:"]');
+    // Add loading state for external links (excluding contact section links)
+    const externalLinks = document.querySelectorAll('a[href^="http"]:not(.contact-info-container a)');
     externalLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             // Add loading indicator
             const originalText = this.textContent;
+            const originalAriaLabel = this.getAttribute('aria-label');
             this.textContent = 'Loading...';
+            this.setAttribute('aria-label', 'Loading, please wait...');
             this.style.opacity = '0.7';
             
             // Reset after a short delay (simulate loading)
             setTimeout(() => {
                 this.textContent = originalText;
+                this.setAttribute('aria-label', originalAriaLabel);
                 this.style.opacity = '1';
             }, 1000);
         });
@@ -119,10 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add back to top button
     const backToTopButton = document.createElement('button');
     backToTopButton.innerHTML = '↑';
+    backToTopButton.className = 'back-to-top-btn';
     backToTopButton.style.cssText = `
         position: fixed;
         bottom: 20px;
-        right: 20px;
+        right: 80px;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -170,6 +192,14 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0)';
             this.style.boxShadow = 'none';
         });
+        
+        // Add keyboard support for buttons
+        button.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
     });
 
     // Add click ripple effect to buttons
@@ -215,4 +245,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
+
+    // Add keyboard support for arrow navigation
+    const arrows = document.querySelectorAll('.arrow');
+    arrows.forEach(arrow => {
+        arrow.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+
 });

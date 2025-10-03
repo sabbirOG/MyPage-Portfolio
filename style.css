@@ -6,6 +6,59 @@
   padding: 0;
 }
 
+/* ACCESSIBILITY - Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ACCESSIBILITY - Focus States */
+*:focus {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline and add custom */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+/* Enhanced focus for interactive elements */
+.btn:focus,
+.icon:focus {
+  outline: 3px solid #333;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.3);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor;
+  }
+  
+  .btn {
+    border-width: 2px;
+  }
+}
+
 body {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
@@ -14,18 +67,13 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
-/* If you want to use Zalando Sans Expanded in some elements */
-.zalando {
-  font-family: "Zalando Sans Expanded", sans-serif;
-  font-weight: 300;
-}
 
 html {
     scroll-behavior: smooth;
 }
 
 p {
-    color: rgb(85, 85, 85);
+    color: #333; /* Black and white theme */
 }
 
 /* TRANSITIONS */
@@ -57,10 +105,27 @@ a {
     text-decoration-color: white;
 }
 a:hover {
-    color: grey;
+    color: #333; /* Better contrast than grey */
     text-decoration: underline;
     text-underline-offset: 1rem;
-    text-decoration-color: rgba(3, 3, 3, 0.931);
+    text-decoration-color: #333;
+}
+
+a:focus {
+    color: #333;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: #333;
+}
+
+/* Cursor styling for interactive elements */
+a, button, .btn, .nav-links a, .menu-links a, .hamburger-menu, .hamburger-icon, .arrow, .back-to-top-btn, .social-icon, .project-btn, .icon, input[type="button"], input[type="submit"], [role="button"], [tabindex="0"] {
+    cursor: pointer;
+}
+
+/* Non-interactive elements should have default cursor */
+.logo, article .icon, .contact-icon, .email-icon, .section__pic-container img, .project-img {
+    cursor: default;
 }
 
 
@@ -69,13 +134,15 @@ a:hover {
     font-weight: 200;
 }
 
-.logo:hover{
-    cursor: default;
-}
 /* HAMBURGER-MENU */
 
 #hamburger-nav {
     display: none;
+}
+
+/* Ensure desktop nav is visible by default */
+#desktop-nav {
+    display: flex;
 }
 .hamburger-menu {
     position: relative;
@@ -87,7 +154,7 @@ a:hover {
     justify-content: space-between;
     height: 25px;
     width: 30px;
-    cursor: pointer;
+    /* cursor: pointer; - now handled globally */
 }
 
 .hamburger-icon span {
@@ -102,20 +169,35 @@ a:hover {
     top: 100%;
     right: 0%;
     background-color: white;
-    width: fit-content;
+    width: 200px;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease-in-out; 
-    
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border: 1px solid #ccc;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .menu-links a {
     display: block;
-    padding: 10px;
-    text-align: 1.5rem;
-    color: black;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    color: #333;
     text-decoration: none;
-    transition: all 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-links a:hover {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.menu-links a:last-child {
+    border-bottom: none;
 }
 
 .menu-links li {
@@ -124,6 +206,8 @@ a:hover {
 
 .menu-links.open {
     max-height: 300px;
+    opacity: 1;
+    visibility: visible;
 }
 
 .hamburger-icon.open span:first-child { 
@@ -146,9 +230,9 @@ a:hover {
 /* SECTIONS */
 
 section {
-    padding-top: 4vh;
-    height: 96vh;
-    margin: 0 10rem;
+    padding: 4vh 10rem 2vh 10rem;
+    height: 100vh;
+    margin: 0 0 4rem 0;
     box-sizing: border-box;
     min-height: fit-content;
 }
@@ -162,6 +246,7 @@ section {
 #profile {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 5rem;
     height: 80vh;
 }
@@ -208,11 +293,43 @@ section {
 /* ICONS */
 
 .icon {
-    cursor: pointer;
+    /* cursor: pointer; - now handled globally */
     height: 2rem;
     padding: 0.5rem;
     padding-top: 1rem;
 
+}
+
+/* Social icons in profile section - increase size, remove click effects and add hover */
+#social-container .icon {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    height: 2.5rem;
+    padding: 0.5rem;
+    padding-top: 1rem;
+}
+
+#social-container .icon:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+#social-container .icon:active {
+    transform: none;
+    box-shadow: none;
+    outline: none;
+}
+
+#social-container .icon:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 /* BUTTONS */
@@ -231,7 +348,7 @@ section {
     padding: 1rem;              
     width: 12rem;                
     border-radius: 2rem;         
-    cursor: pointer;             
+    /* cursor: pointer; - now handled globally */             
 }
 
 /* Default dark buttons */
@@ -255,6 +372,19 @@ section {
     border: 1px solid black;    
 }
 
+/* Focus states for buttons */
+.btn-color-2:focus {
+    background-color: rgb(53, 53, 53);    
+    color: white;              
+    border: 2px solid #333;    
+}
+
+.btn-color-1:focus {
+    background-color: white; 
+    color: black;                      
+    border: 2px solid #333;  
+}
+
 /* Hover effect for Download CV button */
 .btn-color-1:hover {
     background-color: white; 
@@ -271,17 +401,70 @@ section {
 .about-containers {
     gap: 2rem;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
-.about-details-container {
-    justify-content: center;
-    flex-direction: column;
-}
-
-.about-containers,
 .about-details-container {
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Achievements Section */
+.achievements-container {
+    margin: -12rem 0 0 0;
+    text-align: center;
+}
+
+.achievements-title {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.achievement-item {
+    background: linear-gradient(135deg, #333 0%, #666 100%);
+    color: white;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.achievement-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Text container spacing */
+.text-container {
+    margin-top: 2rem;
 }
 
 .about-pic {
@@ -290,37 +473,84 @@ section {
     width: auto;
 }
 
-/* Unified arrow styling for all scroll arrows */
+/* Arrow styling - Desktop only */
 .arrow {
     position: absolute;
-    right: 2rem;       /* same distance from right for all arrows */
-    font-size: 2rem;   /* adjust size as needed */
-    cursor: pointer;   /* pointer on hover */
+    right: 2rem;
+    bottom: 2rem;
+    width: 40px;
+    height: 40px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
-/* Arrow inside About section → scroll to Experience */
+.arrow:hover,
+.arrow:focus {
+    transform: translateY(-3px) scale(1.1);
+    opacity: 1;
+    outline: 2px solid #333;
+    outline-offset: 2px;
+}
+
+.arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(80%);
+    transition: all 0.3s ease;
+}
+
+.arrow:hover img,
+.arrow:focus img {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+}
+
+.arrow:active {
+    transform: translateY(-1px) scale(0.95);
+}
+
+/* Specific arrow positioning for each section */
 #about .arrow {
-    bottom: 2rem;      /* bottom-right of About section */
+    right: 2rem;
+    bottom: 2rem;
 }
 
-/* Arrow inside Experience section → scroll to Project */
 #experience .arrow {
-    bottom: 2rem;      /* bottom-right of Experience section */
+    right: 2rem;
+    bottom: 2rem;
+}
+
+#projects .arrow {
+    right: 2rem;
+    bottom: 2rem;
+}
+
+/* Back to top button - hide on mobile devices */
+.back-to-top-btn {
+    display: block;
 }
 
 .details-container {
-    padding: 1.5rem;
+    padding: 0.9rem;
     flex: 1;
     background: white;
-    border-radius: 2rem;
+    border-radius: 1.35rem;
     border: 0.1rem solid rgb(163, 163, 163);
     text-align: center;
+    transform: scale(0.9);
 }
 
 .section-container {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
     height: 80%;
+    align-items: center;
 }
 
 .section__pic-container {
@@ -335,8 +565,13 @@ section {
     position: relative;
 }
 
+/* Ensure all sections with arrows have relative positioning */
+#profile {
+    position: relative;
+}
+
 .experience-sub-title {
-    color: rgb(85, 85, 85);
+    color: #333; /* Black and white theme */
     font-weight: 600;
     font-size: 1.75rem;
     margin-bottom: 2rem;
@@ -358,20 +593,58 @@ section {
 }
 
 article {
-      display: flex;
-      width: 10rem;
-      justify-content: space-around;
-      gap: 0.5rem;
+    display: flex;
+    width: 10rem;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+article:hover {
+    background-color: #f5f5f5;
 }
 
 article .icon {
-    cursor: default;
+    /* cursor: default; - now handled globally */
+    flex-shrink: 0;
+}
+
+article div {
+    flex: 1;
+    min-width: 0;
+}
+
+article h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+article p {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.875rem;
+    color: #666;
+    font-weight: 500;
 }
 
 /* PROJECTS SECTION */
 
 #projects {
     position: relative;
+}
+
+/* Projects section specific layout - single row */
+#projects .about-containers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    grid-template-columns: none;
+    grid-template-rows: none;
 }
 
 .color-container {
@@ -395,23 +668,63 @@ article .icon {
     border-color: rgb(163, 163, 163);
 }
 
+/* Project Description Styles */
+.project-description {
+    margin: 0.5rem 0;
+    text-align: left;
+}
+
+.project-description p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+
+.project-achievements {
+    margin-top: 0.5rem;
+}
+
+.project-achievements h4 {
+    color: #333;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.project-achievements ul {
+    list-style-type: disc;
+    margin-left: 1rem;
+    color: #333;
+    font-size: 0.8rem;
+}
+
+.project-achievements li {
+    margin-bottom: 0.15rem;
+    line-height: 1.3;
+}
+
 /* CONTACT */
 #contact {
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: 70vh;
+    margin-bottom: 0;
 }
 
 .contact-info-upper-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 2rem;
-    border: rgbt(53, 53, 53) 0.1rem solid;
+    border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
     background: rgb(250, 250, 250);
     margin: 2rem auto;
-    pad: 0.5rem;
+    padding: 1rem;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .contact-info-container {
@@ -419,19 +732,76 @@ article .icon {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    margin: 1rem;
+    margin: 0.5rem;
+    min-width: 200px;
+    flex-shrink: 0;
 }
 
 .contact-info-container {
     font-size: larger;
 }
 
-.contact-icon {
-    cursor: default;
-}
 .email-icon {
     height: 2.5rem;
 
+}
+
+/* Remove click/active effects from all contact links */
+.contact-info-container a {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.contact-info-container a:active {
+    transform: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.contact-info-container a:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.contact-info-container a:hover {
+    text-decoration: none;
+    opacity: 0.7;
+    transform: scale(1.05);
+}
+
+/* Remove all hover effects from email text and allow text selection */
+.contact-info-container:has(.email-icon) p a {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+.contact-info-container:has(.email-icon) p a:hover {
+    opacity: 1;
+    transform: none;
+    color: inherit;
+}
+
+/* Simple hover effect for contact icons */
+.contact-info-container .icon:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Simple hover effect for contact text (excluding email) */
+.contact-info-container:not(:has(.email-icon)) p a:hover {
+    color: #666;
+    transition: color 0.3s ease;
 }
 
 /* FOOTER SECTION */
