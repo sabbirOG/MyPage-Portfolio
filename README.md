@@ -1,6 +1,6 @@
 # Portfolio Template
 
-A simple, clean portfolio template that actually works. No frameworks, no bloat - just HTML, CSS, and JavaScript.
+A simple, clean blac & white portfolio template that actually works. No frameworks - just HTML, CSS, and JavaScript.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -8,8 +8,8 @@ A simple, clean portfolio template that actually works. No frameworks, no bloat 
 
 - **It's fast** - No heavy frameworks slowing things down
 - **It's responsive** - Looks great on phones, tablets, and desktops
-- **It's accessible** - Works with screen readers and keyboard navigation
 - **It's yours** - Easy to customize and make it your own
+- **Credit me** - Just give a simple credit if you copy the repo
 
 ## Get started
 
