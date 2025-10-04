@@ -48,6 +48,12 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.3);
 }
 
+/* Remove focus outline from hamburger menu */
+.hamburger-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   * {
@@ -717,7 +723,7 @@ article p {
 
 .contact-info-upper-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
@@ -732,7 +738,7 @@ article p {
 .contact-info-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.5rem;
     margin: 0.5rem;
     min-width: 200px;
@@ -815,4 +821,11 @@ footer {
 
 footer p {
     text-align: center;
+}
+
+/* Footer navigation with pipe separators for desktop */
+footer .nav-links li + li::before {
+    content: " | ";
+    margin-right: 0.8rem;
+    color: #666;
 }

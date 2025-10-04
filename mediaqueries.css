@@ -1,0 +1,565 @@
+/* ===============================================
+   RESPONSIVE DESIGN - TABLET (max-width: 1200px)
+   =============================================== */
+@media screen and (max-width: 1200px) {
+    /* Navigation adjustments */
+    nav {
+        height: 15vh;
+        padding: 0 2rem;
+    }
+    
+    .nav-links {
+        font-size: 1.3rem;
+        gap: 1.5rem;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    /* Section padding adjustments */
+    section {
+        padding: 3vh 2rem 2vh 2rem;
+    }
+    
+    /* Profile section adjustments */
+    #profile {
+        gap: 2rem;
+    }
+    
+    .section__pic-container {
+        height: 280px;
+        width: 280px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .section__text p {
+        font-size: 22px;
+    }
+    
+    .section__text__p2 {
+        font-size: 1.3rem;
+    }
+    
+    /* About section adjustments */
+    .about-containers {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 1.5rem;
+    }
+    
+    .section-container {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .about-pic {
+        height: 320px;
+        width: auto;
+    }
+    
+    /* Achievements grid adjustments */
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.8rem;
+    }
+    
+    .achievement-item {
+        padding: 1.2rem 0.8rem;
+    }
+    
+    .achievement-number {
+        font-size: 1.8rem;
+    }
+    
+    .achievement-text {
+        font-size: 0.85rem;
+    }
+    
+    /* Experience section adjustments */
+    .article-container {
+        gap: 2rem;
+        justify-content: center;
+    }
+    
+    article {
+        width: 9rem;
+    }
+    
+    /* Projects section adjustments */
+    #projects .about-containers {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .color-container {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    /* Contact section adjustments */
+    .contact-info-upper-container {
+        padding: 1.5rem;
+        gap: 1.5rem;
+        justify-content: flex-start;
+    }
+    
+    .contact-info-container {
+        min-width: 180px;
+        font-size: 1.1rem;
+        justify-content: flex-start;
+    }
+    
+    /* Hide arrow navigation buttons on tablet devices */
+    .arrow {
+        display: none;
+    }
+    
+    /* Hide back to top button on tablet devices */
+    .back-to-top-btn {
+        display: none;
+    }
+    
+    /* Button adjustments */
+    .btn {
+        width: 10rem;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Footer adjustments */
+    footer {
+        height: 20vh;
+        margin: 0 1rem 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    /* Footer navigation adjustments for tablet */
+    footer .nav-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    footer .nav-links li {
+        margin: 0.3rem 0;
+    }
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN - MOBILE (max-width: 600px)
+   =============================================== */
+@media screen and (max-width: 600px) {
+    /* Hide desktop nav, show mobile nav */
+    #desktop-nav {
+        display: none;
+    }
+    
+    #hamburger-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 12vh;
+        padding: 0 1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    /* Section padding for mobile */
+    section {
+        padding: 2vh 1rem 1vh 1rem;
+        min-height: 85vh;
+    }
+    
+    /* Profile section mobile layout */
+    #profile {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 1vh 0.5rem;
+    }
+    
+    .section__pic-container {
+        height: 200px;
+        width: 200px;
+        margin: 0 auto;
+    }
+    
+    .section__pic-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+        white-space: normal;
+        line-height: 1.2;
+    }
+    
+    .section__text p {
+        font-size: 18px;
+    }
+    
+    .section__text__p2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Button container mobile layout */
+    .btn-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 180px;
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Social icons mobile layout */
+    #social-container {
+        margin-top: 1rem;
+        gap: 0.8rem;
+    }
+    
+    #social-container .icon {
+        height: 2rem;
+        padding: 0.3rem;
+    }
+    
+    /* About section mobile layout */
+    .section-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .about-pic {
+        height: 200px;
+        width: auto;
+        border-radius: 50%;
+    }
+    
+    .about-containers {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 0.8rem;
+        margin-top: 0.8rem;
+    }
+    
+    .details-container {
+        padding: 0.6rem;
+        transform: scale(1);
+        margin-bottom: 0.8rem;
+    }
+    
+    /* Achievements mobile layout */
+    .achievements-container {
+        margin: 0.8rem 0 0 0;
+    }
+    
+    .achievements-title {
+        font-size: 1.2rem;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+        margin-top: 0.6rem;
+    }
+    
+    .achievement-item {
+        padding: 0.8rem 0.4rem;
+    }
+    
+    .achievement-number {
+        font-size: 1.3rem;
+    }
+    
+    .achievement-text {
+        font-size: 0.75rem;
+    }
+    
+    /* Text container mobile */
+    .text-container {
+        margin-top: 1rem;
+        text-align: left;
+    }
+    
+    .text-container p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    /* Experience section mobile */
+    .experience-sub-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .article-container {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+    
+    article {
+        width: 100%;
+        max-width: 250px;
+        padding: 0.6rem;
+        justify-content: flex-start;
+    }
+    
+    article h3 {
+        font-size: 0.85rem;
+    }
+    
+    article p {
+        font-size: 0.75rem;
+    }
+    
+    /* Projects section mobile */
+    #projects .about-containers {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .color-container {
+        width: 100%;
+        padding: 0.8rem;
+    }
+    
+    .project-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 0.8rem;
+    }
+    
+    .experience-sub-title-project-title {
+        font-size: 1.1rem;
+        margin: 0.8rem 0;
+    }
+    
+    .project-description p {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .project-achievements h4 {
+        font-size: 0.75rem;
+    }
+    
+    .project-achievements ul {
+        font-size: 0.7rem;
+        margin-left: 0.6rem;
+    }
+    
+    .project-btn {
+        width: 100%;
+        max-width: 130px;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    /* Contact section mobile */
+    .contact-info-upper-container {
+        flex-direction: column;
+        padding: 0.8rem;
+        gap: 0.8rem;
+        margin: 0.8rem auto;
+        align-items: flex-start;
+    }
+    
+    .contact-info-container {
+        min-width: auto;
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 0.4rem;
+        justify-content: flex-start;
+    }
+    
+    .contact-info-container .icon {
+        height: 1.8rem;
+    }
+    
+    .email-icon {
+        height: 2rem;
+    }
+    
+    /* Hide arrow navigation buttons on mobile devices */
+    .arrow {
+        display: none;
+    }
+    
+    /* Footer mobile */
+    footer {
+        height: 18vh;
+        margin: 0 0.5rem 1.5rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    footer p {
+        font-size: 0.8rem;
+    }
+    
+    /* Footer navigation adjustments for mobile */
+    footer .nav-links {
+        flex-direction: column;
+        gap: 0.6rem;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    footer .nav-links li {
+        margin: 0.2rem 0;
+    }
+    
+    footer .nav-links a {
+        padding: 0.2rem 0.4rem;
+        display: inline-block;
+        border-radius: 0.2rem;
+        transition: background-color 0.3s ease;
+    }
+    
+    footer .nav-links a:hover {
+        background-color: #f0f0f0;
+    }
+    
+    /* Hide back to top button on mobile devices */
+    .back-to-top-btn {
+        display: none;
+    }
+    
+    /* Mobile menu improvements */
+    .menu-links {
+        width: 180px;
+        right: -10px;
+    }
+    
+    .menu-links a {
+        padding: 10px 14px;
+        font-size: 1rem;
+    }
+    
+    /* Typography adjustments for very small screens - handled in separate media query */
+    
+    /* Accessibility improvements for mobile */
+    /* Increase touch targets for mobile */
+    .btn, .icon, .hamburger-icon, .arrow {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improve focus visibility on mobile */
+    *:focus {
+        outline: 3px solid #333;
+        outline-offset: 2px;
+    }
+    
+    /* Ensure text is readable */
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    /* Improve contrast for small screens */
+    .achievement-item {
+        background: linear-gradient(135deg, #000 0%, #333 100%);
+    }
+}
+
+/* ===============================================
+   LANDSCAPE MOBILE ORIENTATION
+   =============================================== */
+@media screen and (max-width: 600px) and (orientation: landscape) {
+    section {
+        min-height: 100vh;
+        padding: 2vh 1.5rem;
+    }
+    
+    #profile {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .section__pic-container {
+        height: 200px;
+        width: 200px;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .btn-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .btn {
+        width: 140px;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ===============================================
+   VERY SMALL MOBILE SCREENS (max-width: 400px)
+   =============================================== */
+@media screen and (max-width: 400px) {
+    /* Typography adjustments for very small screens */
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .section__text p {
+        font-size: 18px;
+    }
+    
+    .section__text__p2 {
+        font-size: 1.2rem;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    /* Footer navigation for very small screens */
+    footer .nav-links {
+        font-size: 0.75rem;
+        gap: 0.3rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    footer .nav-links a {
+        padding: 0.1rem 0.3rem;
+    }
+    
+    footer .nav-links li + li::before {
+        content: " | ";
+        margin-right: 0.3rem;
+        color: #666;
+    }
+}
+
