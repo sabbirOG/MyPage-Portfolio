@@ -8,7 +8,6 @@ A simple, clean blac & white portfolio template that actually works. No framewor
 
 - **It's fast** - No heavy frameworks slowing things down
 - **It's responsive** - Looks great on phones, tablets, and desktops
-- **It's accessible** - Works with screen readers and keyboard navigation
 - **It's yours** - Easy to customize and make it your own
 
 ## Get started
