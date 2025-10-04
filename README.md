@@ -9,6 +9,7 @@ A simple, clean blac & white portfolio template that actually works. No framewor
 - **It's fast** - No heavy frameworks slowing things down
 - **It's responsive** - Looks great on phones, tablets, and desktops
 - **It's yours** - Easy to customize and make it your own
+- **Credit me** - Just give a simple credit if you copy the repo
 
 ## Get started
 
@@ -53,7 +54,6 @@ Want different fonts? Update the Google Fonts link in `index.html`.
 ## License
 
 MIT - use it for whatever you want.
-CREDIT - give credit to the author
 
 ---
 
