@@ -1,0 +1,491 @@
+<!--main page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPage-Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+    <!-- Skip to main content link for screen readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <nav id="desktop-nav" role="navigation" aria-label="Main navigation">
+        <div class="logo">Your Name</div>
+        <div>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#about" role="menuitem" aria-label="Navigate to About section">About</a></li>
+                <li role="none"><a href="#experience" role="menuitem" aria-label="Navigate to Experience section">Experience</a></li>
+                <li role="none"><a href="#projects" role="menuitem" aria-label="Navigate to Projects section">Projects</a></li>
+                <li role="none"><a href="#contact" role="menuitem" aria-label="Navigate to Contact section">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="hamburger-nav" role="navigation" aria-label="Mobile navigation">
+        <div class="logo">Your Name</div>
+        <div class="hamburger-menu">
+            <button class="hamburger-icon" onclick="toggleMenu()" 
+                    aria-label="Toggle mobile menu" 
+                    aria-expanded="false" 
+                    aria-controls="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="menu-links" id="mobile-menu" role="menu" aria-hidden="true">
+                <li role="none"><a href="#about" role="menuitem" onclick="toggleMenu()" aria-label="Navigate to About section">About</a></li>
+                <li role="none"><a href="#experience" role="menuitem" onclick="toggleMenu()" aria-label="Navigate to Experience section">Experience</a></li>
+                <li role="none"><a href="#projects" role="menuitem" onclick="toggleMenu()" aria-label="Navigate to Projects section">Projects</a></li>
+                <li role="none"><a href="#contact" role="menuitem" onclick="toggleMenu()" aria-label="Navigate to Contact section">Contact</a></li>
+            </div>
+        </div>
+    </nav>
+    <main id="main-content">
+    <section id="profile" aria-labelledby="profile-title">
+        <div class="section__pic-container">
+            <img src="./assets/profile-placeholder.png" alt="Your profile picture">
+        </div>
+        <div class="section__text">
+            <p class="section__text__p1">Hello I'm</p>
+            <h1 class="title" id="profile-title">Your Full Name</h1>
+            <p class="section__text__p2">Your Title</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2"
+                onclick="window.open('./assets/your-resume.pdf')"
+                aria-label="Download your resume in PDF format">Download CV</button>
+                <button class="btn btn-color-1"
+                onclick="location.href='./#contact'"
+                aria-label="Navigate to contact section">Contact</button>
+            </div>
+            <div id="social-container" role="complementary" aria-label="Social media links">
+                <img src="./assets/linkedin.png" alt="Visit your LinkedIn profile"
+                    class="icon"
+                    onclick="location.href='https://www.linkedin.com/in/your-profile/'"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Open LinkedIn profile in new tab">
+                <img src="./assets/github.png" alt="Visit your GitHub profile"
+                class="icon"
+                onclick="location.href='https://github.com/your-username'"
+                role="button"
+                tabindex="0"
+                aria-label="Open GitHub profile in new tab">
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">About Me</h1>
+        <div class="section-container">
+            <div class="section__pic-container">
+                <img src="./assets/about-placeholder.png" alt="about picture" class="about-pic">
+            </div>
+            <div class="about-details-container">
+                <div class="about-containers">
+                    <div class="details-container">
+                        <img src="./assets/experience.png" alt="experience icon" class="icon">
+                        <h3>Experience</h3>
+                        <p>1+ year <br>Full-Stack Development</p>
+                    </div>
+                    <div class="details-container">
+                        <img src="./assets/education.png" alt="education icon" class="icon">
+                        <h3>Education</h3>
+                        <p>B.Sc in Computer Science & Engineering<br>Your University Name<br>Oct 2022 - Present (Expected 2027)</p>
+                    </div>
+                </div>
+                
+                <!-- Achievements Section -->
+                <div class="achievements-container">
+                    <h3 class="achievements-title">Quick Stats</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <div class="achievement-number">6+</div>
+                            <div class="achievement-text">Projects Completed</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">5+</div>
+                            <div class="achievement-text">Technologies Mastered</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">100%</div>
+                            <div class="achievement-text">Mobile Responsive</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">1+</div>
+                            <div class="achievement-text">Year Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <p>I'm a passionate <strong>Computer Science & Engineering</strong> student with over a year of hands-on experience in <strong>full-stack development</strong>, 
+                        with a primary focus on <strong>frontend development</strong>. I love creating <strong>innovative solutions</strong> and turning ideas into reality through code. 
+                        My journey in tech started with curiosity and has evolved into a deep passion for building 
+                        <strong>user-friendly applications</strong> and solving <strong>complex problems</strong>. I'm always eager to learn new technologies 
+                        and collaborate on exciting projects that make a real impact. My current research interests lie in <strong>FinTech Security</strong> and <strong>Human-Computer Interaction (HCI)</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" 
+            alt="Navigate to Experience section" 
+            class="icon arrow" 
+            onclick="location.href='./#experience'"
+            tabindex="0"
+            role="button"
+            aria-label="Go to Experience section"
+            />
+    </section>
+    <section id="experience">
+        <p class="section__text__p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+        <div class="experience-details-container">
+            <div class="about-containers">
+                <div class="details-container">
+                    <h2 class="experience-sub-title">Frontend Development</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>HTML</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>CSS</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>Bootstrap</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>JavaScript</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>TypeScript</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>Git & Github</h3>
+                                <p>Experienced</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <h2 class="experience-sub-title">Backend Development</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>MySQL</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>PHP</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>JSON</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>API Integration</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <h2 class="experience-sub-title">Current Positions</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>Associate Member</h3>
+                                <p>UIU Robotics Club</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>Core Member</h3>
+                                <p>UIU CSE Project Show</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>Organizing Volunteer</h3>
+                                <p>World Robotics Olympiad Bangladesh</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="details-container">
+                    <h2 class="experience-sub-title">Achievements & Interests</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>4th Runner-up</h3>
+                                <p>UIU CSE Project Show (DBMS Category)</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" 
+                            alt="experience icon"
+                            class="icon"/>
+                            <div>
+                                <h3>Research Interest</h3>
+                                <p>FinTech Security and HCI</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" 
+            alt="Navigate to Projects section" 
+            class="icon arrow" 
+            onclick="location.href='./#projects'"
+            tabindex="0"
+            role="button"
+            aria-label="Go to Projects section"
+        />
+    </section>
+    <section id="projects">
+        <p class="section__text__p1">Browse My Recent</p>
+        <h1 class="title">Projects</h1>
+        <div class="experience-details-container">
+            <div class="about-containers">
+            <div class="details-container color-container">
+
+                <!-- first proejct -->
+
+                <div class="article-container">
+                    <img src="./assets/project-placeholder-1.png" 
+                    alt="Orange Route project banner"
+                    class="project-img"
+                    />
+                </div>
+                <h2 class="experience-sub-title-project-title">Orange Route</h2>
+                <div class="project-description">
+                    <p>A comprehensive route planning and navigation application that helps users find optimal paths and discover local attractions. Features real-time traffic updates and interactive maps.</p>
+                    
+                    <div class="project-achievements">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Real-time route optimization</li>
+                            <li>Interactive map integration</li>
+                            <li>Mobile-responsive design</li>
+                            <li>Traffic-aware navigation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button 
+                        class="btn btn-color-2 project-btn" onclick="location.
+                        href='https://github.com/your-username/project-1'"
+                        aria-label="View Orange Route project on GitHub">
+                    Github
+                    </button>
+                    <button 
+                        class="btn btn-color-2 project-btn" onclick="location.
+                        href='https://github.com/your-username/project-1'"
+                        aria-label="View Orange Route live demo">
+                    Live Demo
+                    </button>
+                </div>
+            </div>
+            <div class="details-container color-container">
+
+                <!-- Second project -->
+
+                <div class="article-container">
+                    <img src="./assets/project-placeholder-2.png" 
+                    alt="LinkUIU project banner"
+                    class="project-img"
+                    />
+                </div>
+                <h2 class="experience-sub-title-project-title">LinkUIU</h2>
+                <div class="project-description">
+                    <p>A university networking platform connecting students, faculty, and alumni. Features include profile management, event organization, and academic resource sharing.</p>
+                    
+                    <div class="project-achievements">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>User authentication system</li>
+                            <li>Profile management</li>
+                            <li>Event creation and management</li>
+                            <li>Database integration</li>
+                            <li>Real-time notifications</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button 
+                        class="btn btn-color-2 project-btn" onclick="location.
+                        href='https://github.com/your-username/project-2'"
+                        aria-label="View LinkUIU project on GitHub">
+                    Github
+                    </button>
+                    <button 
+                        class="btn btn-color-2 project-btn" onclick="location.
+                        href='https://sabbirog.github.io/LinkUIU/frontend/pages/landing.html'"
+                        aria-label="View LinkUIU live demo">
+                    Live Demo
+                    </button>
+                </div>
+            </div>
+            <div class="details-container color-container">
+                
+                <!-- third project -->
+
+                <div class="article-container">
+                    <img src="./assets/project-placeholder-3.png" 
+                    alt="PharmaCure project banner"
+                    class="project-img"
+                    />
+                </div>
+                <h2 class="experience-sub-title-project-title">PharmaCure</h2>
+                <div class="project-description">
+                    <p>A comprehensive pharmacy management system with inventory tracking, prescription management, and customer database. Streamlines pharmacy operations and improves patient care.</p>
+                    
+                    <div class="project-achievements">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Inventory management system</li>
+                            <li>Prescription tracking</li>
+                            <li>Customer database</li>
+                            <li>Sales reporting</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button 
+                        class="btn btn-color-2 project-btn" onclick="location.
+                        href='https://github.com/your-username/project-3'"
+                        aria-label="View PharmaCure project on GitHub">
+                    Github
+                    </button>
+                    <button 
+                        class="btn btn-color-2 project-btn" onclick="location.
+                        href='https://sabbirog.github.io/PharmaCure/'"
+                        aria-label="View PharmaCure live demo">
+                    Live Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <img src="./assets/arrow.png" 
+            alt="Navigate to Contact section" 
+            class="icon arrow" 
+            onclick="location.href='./#contact'"
+            tabindex="0"
+            role="button"
+            aria-label="Go to Contact section"
+        />
+    </section>
+    <section id="contact">
+        <p class="section__text__p1">Get in Touch</p>
+        <h1 class="title">Contact Me</h1>
+        
+        <!-- Contact Info -->
+        <div class="contact-info-upper-container">
+            <div class="contact-info-container">
+                <a href="mailto:your-email@example.com">
+                    <img src="./assets/email.png" 
+                    alt="email icon" 
+                    class="icon contact-icon email-icon"
+                    />
+                </a>
+                <p><a href="mailto:your-email@example.com">your-email@example.com</a></p>
+            </div>
+            <div class="contact-info-container">
+                <img src="./assets/linkedin.png" 
+                alt="Linkedin icon" 
+                class="icon contact-icon"
+                />
+                <p><a href="https://www.linkedin.com/in/your-profile/">Linkedin</a></p>
+            </div>
+            <div class="contact-info-container">
+                <img src="./assets/github.png" 
+                alt="GitHub icon" 
+                class="icon contact-icon"
+                />
+                <p><a href="https://github.com/your-username">GitHub</a></p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            </div>
+        </nav>
+        <p>Copyright &#169; 2025 Your Name. All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
