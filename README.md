@@ -54,6 +54,7 @@ Want different fonts? Update the Google Fonts link in `index.html`.
 ## License
 
 MIT - use it for whatever you want.
+CREDIT - give credit to the author
 
 ---
 
